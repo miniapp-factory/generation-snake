@@ -1,0 +1,1476 @@
+
+# 2025-11-21 01:26:51.059889
++Code the following app
++```
++# 🐍 Farcaster Mini App: "CasterSnake" - Viral Sosyal Snake Oyunu
++
++## 🎯 Proje Özeti
++Farcaster ekosisteminde yayınlanacak, **sosyal özellikleri ağır basan**, son derece **bağımlılık yaratan** ve **viral yayılma potansiyeli yüksek** modern bir Snake oyunu. Oyun, Farcaster'ın sosyal grafiğini kullanarak arkadaşlarla rekabet, günlük turnuvalar ve on-chain ödüller sunacak.
++
++---
++
++## 🎮 Temel Oyun Konsepti
++
++**Oyun Adı**: "CasterSnake" veya "FrameSnake" veya "PurpleViper"
++
++**Konsept**: Modern, neon-tarzı, akıcı fizik motorlu Snake oyunu + Farcaster sosyal entegrasyonu + Play-to-Earn mekanikleri
++
++**Benzersiz Satış Noktası**: 
++- Farcaster arkadaşlarınla gerçek zamanlı rekabet
++- Her gün yeni turnuvalar
++- On-chain leaderboard ve NFT ödüller
++- Frame içinde oynanabilir (tek tıkla başlat)
++- Cast ile skor paylaşımı ve challenge gönderme
++
++---
++
++## 🎨 Görsel Tasarım & Tema
++
++### Farcaster Teması
++- **Renk Paleti**: Farcaster mor (#8A63D2), beyaz, siyah, neon yeşil aksan
++- **Logo**: Warpcast/Farcaster logosunu anımsatan snake figürü
++- **UI**: Minimalist, mobil-first, Farcaster design language
++- **Karakter**: Mor renkli glowing snake (Farcaster renkleri)
++
++### Görsel Özellikler
++- **Smooth animasyonlar**: 60 FPS akıcı hareket
++- **Particle effects**: Yemek yeme, güç toplamalarda parlama efektleri
++- **Neon trail**: Snake arkasında parlayan iz bırakır
++- **Dynamic backgrounds**: Level'a göre değişen gradient arka planlar
++- **Screen shake**: Önemli olaylarda hafif ekran sarsıntısı
++- **Glow effects**: Neon ışıltı efektleri
++
++---
++
++## 🕹️ Oyun Mekanikleri
++
++### Temel Kontroller
++```
++- 🎮 Mobil: Swipe (yukarı/aşağı/sağ/sol)
++- ⌨️ Desktop: Arrow keys veya WASD
++- 🖱️ Mouse: Tıklayıp sürükle (snake fareyi takip eder)
++- 🎯 Frame Mode: Tap kontrolleri (basit, frame-friendly)
++```
++
++### Hareket Sistemi
++- **Smooth physics**: Grid yerine akıcı hareket
++- **Hız artışı**: Her 10 yemekte %3 hız artışı
++- **Momentum**: Hafif eylemsizlik (gerçekçi hareket)
++- **180° turn yasağı**: Kendine çarpma önlemi
++
++### Yemek & Büyüme
++- **Regular food**: +1 segment, +10 puan
++- **Golden food** (nadir): +3 segment, +50 puan, 5 saniye hız arttırma
++- **Farcaster logo food** (çok nadir): +5 segment, +100 puan, özel efekt
++- **Spawn pattern**: Rastgele ama snake'den uzak
++- **Visual feedback**: Yemek yediğinde patlamalar, skor popup'ı
++
++---
++
++## 🏆 İlerleme & Seviye Sistemi
++
++### Level Yapısı
++```
++Level 1-5: Warm-up (yavaş, engelsiz)
++Level 6-10: Easy obstacles (sabit duvarlar)
++Level 11-15: Moving obstacles (hareketli engeller)
++Level 16-20: Speed zone (hız artışı)
++Level 21-25: Portal zone (ışınlanma portalları)
++Level 26-30: Chaos mode (her şey karışık)
++Level 31+: Infinite scaling (sürekli zorlaşma)
++```
++
++### Zorluk Skalası
++- **Her level**: +5% hız artışı
++- **Her 5 level**: Yeni engel tipi eklenir
++- **Her 10 level**: Tema değişimi (görsel refresh)
++- **Skor çarpanı**: Level × Snake uzunluğu × Combo
++
++### Level Temaları
++1. **Purple Void** - Farcaster mor boşluk
++2. **Cyber Grid** - Dijital grid dünyası
++3. **Neon City** - Cyberpunk şehir
++4. **Space Warp** - Uzay boşluğu
++5. **Matrix Code** - Yeşil matrix kodları
++6. **Plasma Storm** - Enerji fırtınası
++
++---
++
++## ⚡ Güç Artırıcılar (Power-Ups)
++
++### Power-Up Listesi
++
++1. **⭐ Star (Invincibility)**
++   - 5 saniye yenilmezlik
++   - Rainbow snake efekti
++   - Duvar ve kenara çarpma yasak değil
++
++2. **⏰ Clock (Slow Motion)**
++   - 6 saniye %50 yavaşlama
++   - Mavi ekran tonu
++   - Hassas manevra imkanı
++
++3. **🧲 Magnet (Food Magnet)**
++   - 7 saniye tüm yemekler çekilir
++   - Sarı aura efekti
++   - Hızlı skor kazanma
++
++4. **👻 Ghost (Phase)**
++   - 5 saniye kendi kuyruğundan geçebilme
++   - Şeffaf snake
++   - Risk-free manevralar
++
++5. **💣 Bomb (Clear Screen)**
++   - Tüm engelleri yoket
++   - Patlama animasyonu
++   - Temiz alan
++
++6. **⚡ Lightning (Speed Boost)**
++   - 4 saniye +50% hız
++   - Elektrik efekti
++   - Risk-reward dengesi
++
++7. **🛡️ Shield (One-Hit Save)**
++   - Bir kez ölmekten kurtar
++   - Kalkan efekti
++   - İkinci şans
++
++8. **💰 Coin (Bonus Points)**
++   - +200 anında puan
++   - Altın parıltı
++   - Skor boost
++
++**Spawn oranları**: Her 15-25 saniyede rastgele bir power-up
++
++---
++
++## 🌐 Farcaster Sosyal Entegrasyonları
++
++### 1. **Frame İçi Oynanabilirlik**
++```
++Frame yapısı:
++┌─────────────────────────────┐
++│  🐍 CasterSnake             │
++│  Your Best: 1,234           │
++│  Daily Leader: @username    │
++│  [▶️ Play Now]              │
++│  [🏆 Leaderboard]           │
++└─────────────────────────────┘
++
++Play Now tıklandığında:
++→ Mini web app açılır
++→ FID otomatik alınır
++→ Oyun başlar
++```
++
++### 2. **Cast ile Paylaşım**
++Oyun bittiğinde otomatik cast taslağı:
++```
++🐍 Just scored 2,456 on CasterSnake! 🎮
++Level: 18 | Length: 124
++Can you beat my score? 👇
++[Play CasterSnake]
++```
++
++### 3. **Challenge Sistemi**
++- Belirli bir arkadaşına challenge gönder
++- "@username I challenge you to beat my 2,456 score!"
++- Otomatik notification
++- Challenge board (kim kimi geçmiş)
++
++### 4. **Leaderboard Tipleri**
++
++**Daily Leaderboard** (Her gün sıfırlanır)
++```
++🏆 Today's Champions
++1. @alice - 5,678 ⚡
++2. @bob - 4,532 🔥
++3. @carol - 3,891 💜
++...
++20. You - 1,234 📈
++```
++
++**All-Time Leaderboard**
++```
++👑 Hall of Fame
++1. @legend - 25,678
++2. @pro - 21,453
++3. @master - 19,234
++```
++
++**Friends Leaderboard** (Sadece takip ettiğin kişiler)
++```
++👥 Your Circle
++1. @bestfriend - 3,456
++2. @buddy - 2,789
++3. You - 2,456 ⬆️
++```
++
++**Channel Leaderboards** (/farcaster, /degen vb.)
++
++### 5. **FID Entegrasyonu**
++- Otomatik FID ile login
++- Username display
++- PFP avatar kullanımı (leaderboard'da)
++- Follow suggestions (top players)
++
++### 6. **Sosyal Özellikler**
++- **Spectate Mode**: Arkadaşının oyununu canlı izle
++- **Ghost Replay**: Top skorların replay'ini izle
++- **Clan System**: Ekip oluştur, toplam skor yarışı
++- **Emote Reactions**: Skorlara emoji reaction
++- **Share Highlights**: En iyi anları 3sn GIF olarak paylaş
++
++---
++
++## 💰 Tokenomics & Ödül Sistemi (Opsiyonel)
++
++### Free-to-Play Model
++- Oyun tamamen ücretsiz
++- Sınırsız deneme hakkı
++- Reklam yok
++
++### Ödül Mekanizmaları
++
++**1. Daily Tournament (Günlük Turnuva)**
++```
++🏆 DAILY TOURNAMENT 🏆
++Prize Pool: 50 $DEGEN
++Top 10 paylaşır:
++1st: 15 $DEGEN
++2nd: 10 $DEGEN
++3rd: 8 $DEGEN
++4-10th: 1-2 $DEGEN
++
++Countdown: 6h 23m
++Your Rank: #45
++```
++
++**2. Weekly Grand Tournament**
++```
++Prize Pool: 500 $DEGEN + NFT Badge
++Top 3: Özel NFT kazanır
++```
++
++**3. Achievement NFTs** (Soulbound)
++- "First Blood" - İlk 1000 puan
++- "Speed Demon" - Level 20'ye ulaş
++- "Marathon Runner" - 10 oyun oyna
++- "Social Butterfly" - 5 arkadaşı challenge et
++- "Champion" - Daily leaderboard 1.si ol
++
++**4. Streak Rewards**
++```
++🔥 Play Streak: 7 days
++Bonus: +10% points today!
++
++Play daily for bigger multipliers:
++Day 7: +10%
++Day 14: +25%
++Day 30: +50%
++Day 100: +100% + Special Badge
++```
++
++### $SNAKE Token (Opsiyonel - İleri Aşama)
++- Oyun içi utility token
++- Cosmetic satın alma (snake skins)
++- Tournament entry fees (daha büyük ödüller)
++- Governance (hangi özellikler eklenmeli)
++
++---
++
++## 🎨 Özelleştirme & Progression
++
++### Unlockable Snake Skins
++```
++Starter Skins (Ücretsiz):
++- 💜 Classic Purple (default)
++- ⚪ Ghost White
++- 🖤 Midnight Black
++
++Achievement Skins:
++- 🌈 Rainbow Serpent (1000 skor)
++- 🔥 Fire Dragon (Level 15)
++- ⚡ Lightning Viper (Win daily tournament)
++- 💎 Diamond Python (10k total score)
++- 👑 Golden Crown Snake (Weekly champion)
++
++Premium Skins ($DEGEN ile satın al):
++- 🦄 Unicorn
++- 🐉 Eastern Dragon
++- 🤖 Cyber Snake
++- 🌌 Galaxy Serpent
++```
++
++### Trail Effects
++- Glitter trail
++- Fire trail
++- Lightning trail
++- Rainbow trail
++- Pixel trail
++
++### Emotes (Oyun içi)
++- 😎 Cool
++- 🔥 Fire
++- 💀 RIP
++- 🎯 Nice
++- 😱 OMG
++
++---
++
++## 📱 Teknik Gereksinimler & Mimari
++
++### Frontend Stack
++```
++Framework: Next.js 14 + React
++Canvas: HTML5 Canvas veya PixiJS
++Animation: Framer Motion
++Styling: Tailwind CSS
++State: Zustand veya Jotai
++```
++
++### Farcaster Entegrasyon
++```
++Farcaster Kit: @farcaster/frame-sdk
++Auth: Privy veya Dynamic
++APIs: Neynar API veya Pinata Farcaster API
++```
++
++### Backend & Database
++```
++Database: Supabase (realtime leaderboard)
++Auth: FID-based authentication
++Storage: IPFS for NFT metadata
++API: Next.js API routes
++```
++
++### Blockchain (Opsiyonel)
++```
++Network: Base (Coinbase L2)
++NFTs: ERC-721 (soulbound)
++Tokens: ERC-20 ($SNAKE)
++Smart Contract: Achievement minting
++```
++
++### Performance
++- **Load time**: <2 saniye
++- **FPS**: Sabit 60 FPS
++- **Responsive**: Mobile-first (320px+)
++- **Frame compatibility**: Warpcast, Farcaster apps
++- **Offline mode**: Service Worker ile cache
++
++---
++
++## 🎯 Viral Büyüme Stratejisi
++
++### 1. **Launch Stratejisi**
++```
++Week 1: Soft Launch
++- /farcaster kanalında duyuru
++- İlk 100 oyuncuya özel NFT badge
++- Influencer'lara erken erişim
++
++Week 2: Tournament Launch
++- İlk büyük turnuva (1000 $DEGEN)
++- Viral cast kampanyası
++- Referral bonusları
++
++Week 3: Feature Expansion
++- Yeni snake skins
++- Clan sistemi
++- Partnerships
++```
++
++### 2. **Referral Sistemi**
++```
++Arkadaşını davet et:
++- Sen: +100 bonus puan
++- Arkadaşın: +50 başlangıç bonusu
++- 5 arkadaş: Özel skin unlock
++- 25 arkadaş: Rare NFT badge
++```
++
++### 3. **Cast Viralliği**
++- **Auto-generated casts**: Otomatik skor paylaşımı
++- **Meme potential**: Komik fail momentler
++- **Brag rights**: "I'm #1 in /degen channel"
++- **Challenge threads**: Challenge zincirleri
++
++### 4. **Channel Takeover**
++- Her popüler channel için özel turnuva
++- /degen, /base, /purple vb.
++- Channel-specific leaderboards
++- Channel owner endorsement
++
++### 5. **Seasonal Events**
++```
++🎃 Halloween: Ghost-themed skins
++🎄 Christmas: Snow trail effects
++💜 Farcon: Exclusive tournament
++🚀 Base event: Special Base-themed level
++```
++
++---
++
++## 🎮 Oyun Akışı (User Journey)
++
++### İlk Deneyim
++```
++1. Frame'de "Play Now" görür
++   ↓
++2. Web app açılır, otomatik FID login
++   ↓
++3. Hızlı tutorial (5 saniye)
++   "Swipe to control, eat purple orbs!"
++   ↓
++4. İlk oyun başlar
++   ↓
++5. Oyun biter, skor gösterilir
++   "You scored 234! Daily best: 1,567 by @alice"
++   ↓
++6. [Play Again] [Share Score] [Challenge Friend]
++```
++
++### Returning Player
++```
++1. Frame'de kendi skorunu görür
++   "Your best: 1,234 | Today #15"
++   ↓
++2. Bildirim: "@bob beat your score!"
++   ↓
++3. Hemen girer, revenge attempt
++   ↓
++4. Yeni high score → Auto cast
++   ↓
++5. Challenge @bob back
++```
++
++---
++
++## 🏗️ MVP Özellik Listesi (Öncelik Sırası)
++
++### Phase 1: Core Game (Week 1-2)
++- [x] Temel snake mekanikleri
++- [x] Smooth controls (swipe, keyboard)
++- [x] Food spawn & collision
++- [x] Score system
++- [x] Game over screen
++- [x] Local high score
++
++### Phase 2: Visual Polish (Week 2-3)
++- [x] Neon effects & trails
++- [x] Particle animations
++- [x] Screen shake
++- [x] Sound effects
++- [x] Background music
++- [x] Level themes
++
++### Phase 3: Farcaster Integration (Week 3-4)
++- [x] FID authentication
++- [x] Frame creation
++- [x] Cast sharing
++- [x] Basic leaderboard (daily)
++- [x] Username display
++
++### Phase 4: Social Features (Week 4-5)
++- [x] Challenge system
++- [x] Friends leaderboard
++- [x] Spectate mode
++- [x] Channel leaderboards
++
++### Phase 5: Progression & Retention (Week 5-6)
++- [x] Daily tournaments
++- [x] Achievement system
++- [x] Unlockable skins
++- [x] Streak rewards
++- [x] Power-ups
++
++### Phase 6: Monetization & Scale (Week 6+)
++- [x] NFT badges
++- [x] Token integration
++- [x] Premium features
++- [x] Advanced analytics
++
++---
++
++## 📊 Success Metrics (KPIs)
++
++### Engagement
++- **DAU** (Daily Active Users): Target 1,000+ by Month 1
++- **Avg Session Time**: >5 minutes
++- **Sessions per User**: >3 per day
++- **Retention D1/D7/D30**: 60%/30%/15%
++
++### Social
++- **Casts Generated**: >100 per day
++- **Challenge Sent**: >50 per day
++- **Referrals**: >10 per day
++- **Leaderboard Views**: >500 per day
++
++### Monetization (if applicable)
++- **NFT Mints**: >100 per month
++- **Token Volume**: Growing weekly
++- **Premium Conversion**: >5%
++
++---
++
++## 🎨 Ekran Tasarımları (Wireframes)
++
++### Ana Menü
++```
++┌─────────────────────────────┐
++│    🐍 CASTERSNAKE           │
++│                             │
++│    [▶️  PLAY]               │
++│    [🏆 LEADERBOARD]         │
++│    [👤 PROFILE]             │
++│    [⚙️  SETTINGS]           │
++│                             │
++│    Daily Best: @alice       │
++│    Score: 2,456             │
++└─────────────────────────────┘
++```
++
++### Oyun Ekranı
++```
++┌─────────────────────────────┐
++│ Score: 1,234    ⏸️  Level: 8│
++│ ⭐ x2 (4s)      Best: 2,456 │
++├─────────────────────────────┤
++│                             │
++│         🐍                  │
++│            ●                │
++│                      ●      │
++│     ●                       │
++│                   ●         │
++│                             │
++├─────────────────────────────┤
++│  [◀] Swipe to control [▶]  │
++└─────────────────────────────┘
++```
++
++### Game Over
++```
++┌─────────────────────────────┐
++│      💀 GAME OVER            │
++│                             │
++│    Your Score: 1,234        │
++│    Best: 2,456              │
++│    Today Rank: #24          │
++│                             │
++│    [🔄 Play Again]          │
++│    [📤 Share Score]         │
++│    [⚔️  Challenge Friend]    │
++│                             │
++│    🔥 Streak: 3 days        │
++└─────────────────────────────┘
++```
++
++### Leaderboard
++```
++┌─────────────────────────────┐
++│    🏆 LEADERBOARDS          │
++│ [Daily] [All-Time] [Friends]│
++├─────────────────────────────┤
++│  1. 👑 @alice     5,678 ⚡  │
++│  2. 🥈 @bob       4,532 🔥  │
++│  3. 🥉 @carol     3,891 💜  │
++│  4.    @dave      3,456     │
++│  5.    @eve       3,234     │
++│  ...                        │
++│  24. 📈 You       1,234     │
++├─────────────────────────────┤
++│  Tournament ends in: 5h 23m │
++│  Prize: 50 $DEGEN           │
++└─────────────────────────────┘
++```
++
++---
++
++## 🚀 Detaylı Geliştirme Prompt'u
++
++```
++Create a highly addictive, viral Snake game for Farcaster mini app called "CasterSnake" with these EXACT specifications:
++
++CORE GAME:
++- Smooth physics-based snake (NO grid, fluid ribbon-like movement)
++- Swipe controls for mobile, arrow keys for desktop
++- Snake leaves glowing neon trail with particle effects
++- Food collection with satisfying animations (screen shake, particles, score popup)
++- Speed gradually increases (+5% per level)
++- Smooth 60 FPS gameplay
++
++VISUAL DESIGN:
++- Farcaster purple (#8A63D2) color scheme with neon accents
++- Gradient backgrounds that shift every 5 levels
++- Particle effects on eating, power-ups, death
++- Death animation: slow-motion explosion with particles
++- Minimalist UI with score, level, timer displays
++
++PROGRESSION:
++- Level up every 5 foods eaten
++- 6 rotating themes: Purple Void → Cyber Grid → Neon City → Space Warp → Matrix → Plasma Storm
++- Each theme has unique background and color palette
++- Power-ups spawn every 15-25 seconds: Star (invincibility), Clock (slow-mo), Magnet (attract food), Ghost (phase through tail), Bomb (clear obstacles), Shield (one-hit save)
++
++FARCASTER INTEGRATION:
++- FID-based authentication (auto-login via Farcaster)
++- Display username and PFP on screens
++- Post-game auto-generate cast: "Just scored X on CasterSnake! Can you beat me?"
++- Challenge system: "@username I challenge you to beat my score!"
++- Three leaderboards: Daily (resets 00:00 UTC), All-Time, Friends-Only
++- Show player rankings in real-time
++
++FRAME SUPPORT:
++- Create Farcaster Frame with:
++  * Preview image showing game + top score
++  * "Play Now" button opens mini app
++  * "Leaderboard" button shows rankings
++  * Auto-fetch FID from frame context
++- Frame updates with player's best score after each game
++
++SOCIAL FEATURES:
++- Daily tournament: Top 10 win $DEGEN prizes
++- Streak system: Play daily for +10% bonus (up to +100%)
++- Challenge friends directly via @ mention
++- Share score as cast with one click
++- Spectate mode: Watch friends play live (optional)
++
++UNLOCKABLES:
++- Snake skins unlocked by achievements:
++  * Classic Purple (default)
++  * Ghost White (free)
++  * Rainbow Serpent (reach 1000 score)
++  * Fire Dragon (reach level 15)
++  * Lightning Viper (win daily tournament)
++  * Diamond Python (reach 10k total score)
++- Trail effects: Normal, Glitter, Fire, Lightning, Rainbow
++- Achievement NFT badges (soulbound): "First Blood", "Speed Demon", "Marathon Runner", "Champion"
++
++TECHNICAL REQUIREMENTS:
++- Built with: Next.js 14, React, HTML5 Canvas or PixiJS
++- Styling: Tailwind CSS
++- Farcaster SDK: Use Farcaster Frame SDK or Neynar API
++- Database: Supabase for real-time leaderboards
++- Deploy: Vercel
++- Responsive: Mobile-first (works on Warpcast mobile)
++- Performance: <2s load time, constant 60 FPS
++- Sound: Web Audio API for eating, power-up, game over sounds
++
++GAME FLOW:
++1. User clicks Frame "Play Now"
++2. Mini app opens, auto-login with FID
++3. Quick 5-second tutorial overlay
++4. Game starts immediately
++5. On game over:
++   - Show score, rank, best score
++   - [Play Again] [Share] [Challenge] buttons
++   - Auto-save to leaderboard
++6. After share/challenge: Auto-compose cast
++
++LEADERBOARD FORMAT:
++Daily Leaderboard (top 20):
++1. @username - 5,678 ⚡
++2. @username - 4,532 🔥
++...
++(Your rank: #24 - 1,234 📈)
++
++Prize Pool: 50 $DEGEN
++Resets in: 6h 23m
++
++UI SCREENS NEEDED:
++1. Main Menu: Play, Leaderboard, Profile, Settings
++2. Game Screen: Score, level, timer, power-up indicator
++3. Pause Menu: Resume, restart, quit
++4. Game Over: Score, rank, share, challenge, play again
++5. Leaderboard: Daily/All-Time/Friends tabs
++6. Profile: Stats, achievements, skins
++7. Settings: Sound, music, controls sensitivity
++
++MONETIZATION (Optional):
++- Free to play, no ads
++- Daily tournament entry: Free
++- Premium skins: 100 $DEGEN each
++- Weekly grand tournament: 500 $DEGEN prize pool + NFT
++- Achievement NFTs: Mint on Base blockchain (free)
++
++Make it:
++✅ Extremely addictive ("just one more try")
++✅ Smooth and juicy animations
++✅ Viral-friendly (easy to share, challenge friends)
++✅ Mobile-optimized
++✅ Farcaster-native (feels like part of ecosystem)
++✅ Competitive (leaderboards drive engagement)
++✅ Rewarding (daily play incentives)
++
++Technical implementation:
++- Use requestAnimationFrame for game loop
++- Implement collision detection with bounding boxes
++- Smooth camera follow (slight lerp)
++- Object pooling for particles (performance)
++- Local storage for best score backup
++- API calls batched to avoid rate limits
++- Leaderboard cached for 30 seconds
++
++Deliver a COMPLETE, production-ready mini app that can be deployed immediately to Farcaster. Include all assets, sounds (can use placeholder beeps), and deployment instructions.
++```
++
++---
++
++## 🎉 Ekstra Fikirler (V2 için)
++
++1. **Battle Royale Mode**: 10 oyuncu aynı alanda, son kalan kazanır
++2. **Co-op Mode**: 2 snake birlikte oynuyor, skorlar paylaşılıyor
++3. **Boss Battles**: Her 10 levelde dev düşman snake
++4. **Custom Maps**: Community-created levels
++5. **Betting System**: Skoruna $DEGEN yatır, kazanırsan 2x kazan
++6. **Clan Wars**: Takımlar halinde turnuva
++7. **Live Streaming**: Top players'ı canlı izle
++8. **Skin Marketplace**: Kullanıcılar skin satabilir
++9. **AI Opponents**: Botlara karşı practice
++10. **Cross-chain**: Base, Optimism, Arbitrum leaderboards
++
++---
++
++Bu prompt ile **son derece bağımlılık yaratan, sosyal özellikleri güçlü ve Farcaster ekosisteminde viral olma potansiyeli yüksek** bir Snake oyunu geliştirebilirsiniz! 🐍💜🚀
++```
++
++Generate an app logo and update the app metadata title and description.
+
+# 2025-11-21 01:26:51.063125
++Code the following app
++```
++# 🐍 Farcaster Mini App: "CasterSnake" - Viral Sosyal Snake Oyunu
++
++## 🎯 Proje Özeti
++Farcaster ekosisteminde yayınlanacak, **sosyal özellikleri ağır basan**, son derece **bağımlılık yaratan** ve **viral yayılma potansiyeli yüksek** modern bir Snake oyunu. Oyun, Farcaster'ın sosyal grafiğini kullanarak arkadaşlarla rekabet, günlük turnuvalar ve on-chain ödüller sunacak.
++
++---
++
++## 🎮 Temel Oyun Konsepti
++
++**Oyun Adı**: "CasterSnake" veya "FrameSnake" veya "PurpleViper"
++
++**Konsept**: Modern, neon-tarzı, akıcı fizik motorlu Snake oyunu + Farcaster sosyal entegrasyonu + Play-to-Earn mekanikleri
++
++**Benzersiz Satış Noktası**: 
++- Farcaster arkadaşlarınla gerçek zamanlı rekabet
++- Her gün yeni turnuvalar
++- On-chain leaderboard ve NFT ödüller
++- Frame içinde oynanabilir (tek tıkla başlat)
++- Cast ile skor paylaşımı ve challenge gönderme
++
++---
++
++## 🎨 Görsel Tasarım & Tema
++
++### Farcaster Teması
++- **Renk Paleti**: Farcaster mor (#8A63D2), beyaz, siyah, neon yeşil aksan
++- **Logo**: Warpcast/Farcaster logosunu anımsatan snake figürü
++- **UI**: Minimalist, mobil-first, Farcaster design language
++- **Karakter**: Mor renkli glowing snake (Farcaster renkleri)
++
++### Görsel Özellikler
++- **Smooth animasyonlar**: 60 FPS akıcı hareket
++- **Particle effects**: Yemek yeme, güç toplamalarda parlama efektleri
++- **Neon trail**: Snake arkasında parlayan iz bırakır
++- **Dynamic backgrounds**: Level'a göre değişen gradient arka planlar
++- **Screen shake**: Önemli olaylarda hafif ekran sarsıntısı
++- **Glow effects**: Neon ışıltı efektleri
++
++---
++
++## 🕹️ Oyun Mekanikleri
++
++### Temel Kontroller
++```
++- 🎮 Mobil: Swipe (yukarı/aşağı/sağ/sol)
++- ⌨️ Desktop: Arrow keys veya WASD
++- 🖱️ Mouse: Tıklayıp sürükle (snake fareyi takip eder)
++- 🎯 Frame Mode: Tap kontrolleri (basit, frame-friendly)
++```
++
++### Hareket Sistemi
++- **Smooth physics**: Grid yerine akıcı hareket
++- **Hız artışı**: Her 10 yemekte %3 hız artışı
++- **Momentum**: Hafif eylemsizlik (gerçekçi hareket)
++- **180° turn yasağı**: Kendine çarpma önlemi
++
++### Yemek & Büyüme
++- **Regular food**: +1 segment, +10 puan
++- **Golden food** (nadir): +3 segment, +50 puan, 5 saniye hız arttırma
++- **Farcaster logo food** (çok nadir): +5 segment, +100 puan, özel efekt
++- **Spawn pattern**: Rastgele ama snake'den uzak
++- **Visual feedback**: Yemek yediğinde patlamalar, skor popup'ı
++
++---
++
++## 🏆 İlerleme & Seviye Sistemi
++
++### Level Yapısı
++```
++Level 1-5: Warm-up (yavaş, engelsiz)
++Level 6-10: Easy obstacles (sabit duvarlar)
++Level 11-15: Moving obstacles (hareketli engeller)
++Level 16-20: Speed zone (hız artışı)
++Level 21-25: Portal zone (ışınlanma portalları)
++Level 26-30: Chaos mode (her şey karışık)
++Level 31+: Infinite scaling (sürekli zorlaşma)
++```
++
++### Zorluk Skalası
++- **Her level**: +5% hız artışı
++- **Her 5 level**: Yeni engel tipi eklenir
++- **Her 10 level**: Tema değişimi (görsel refresh)
++- **Skor çarpanı**: Level × Snake uzunluğu × Combo
++
++### Level Temaları
++1. **Purple Void** - Farcaster mor boşluk
++2. **Cyber Grid** - Dijital grid dünyası
++3. **Neon City** - Cyberpunk şehir
++4. **Space Warp** - Uzay boşluğu
++5. **Matrix Code** - Yeşil matrix kodları
++6. **Plasma Storm** - Enerji fırtınası
++
++---
++
++## ⚡ Güç Artırıcılar (Power-Ups)
++
++### Power-Up Listesi
++
++1. **⭐ Star (Invincibility)**
++   - 5 saniye yenilmezlik
++   - Rainbow snake efekti
++   - Duvar ve kenara çarpma yasak değil
++
++2. **⏰ Clock (Slow Motion)**
++   - 6 saniye %50 yavaşlama
++   - Mavi ekran tonu
++   - Hassas manevra imkanı
++
++3. **🧲 Magnet (Food Magnet)**
++   - 7 saniye tüm yemekler çekilir
++   - Sarı aura efekti
++   - Hızlı skor kazanma
++
++4. **👻 Ghost (Phase)**
++   - 5 saniye kendi kuyruğundan geçebilme
++   - Şeffaf snake
++   - Risk-free manevralar
++
++5. **💣 Bomb (Clear Screen)**
++   - Tüm engelleri yoket
++   - Patlama animasyonu
++   - Temiz alan
++
++6. **⚡ Lightning (Speed Boost)**
++   - 4 saniye +50% hız
++   - Elektrik efekti
++   - Risk-reward dengesi
++
++7. **🛡️ Shield (One-Hit Save)**
++   - Bir kez ölmekten kurtar
++   - Kalkan efekti
++   - İkinci şans
++
++8. **💰 Coin (Bonus Points)**
++   - +200 anında puan
++   - Altın parıltı
++   - Skor boost
++
++**Spawn oranları**: Her 15-25 saniyede rastgele bir power-up
++
++---
++
++## 🌐 Farcaster Sosyal Entegrasyonları
++
++### 1. **Frame İçi Oynanabilirlik**
++```
++Frame yapısı:
++┌─────────────────────────────┐
++│  🐍 CasterSnake             │
++│  Your Best: 1,234           │
++│  Daily Leader: @username    │
++│  [▶️ Play Now]              │
++│  [🏆 Leaderboard]           │
++└─────────────────────────────┘
++
++Play Now tıklandığında:
++→ Mini web app açılır
++→ FID otomatik alınır
++→ Oyun başlar
++```
++
++### 2. **Cast ile Paylaşım**
++Oyun bittiğinde otomatik cast taslağı:
++```
++🐍 Just scored 2,456 on CasterSnake! 🎮
++Level: 18 | Length: 124
++Can you beat my score? 👇
++[Play CasterSnake]
++```
++
++### 3. **Challenge Sistemi**
++- Belirli bir arkadaşına challenge gönder
++- "@username I challenge you to beat my 2,456 score!"
++- Otomatik notification
++- Challenge board (kim kimi geçmiş)
++
++### 4. **Leaderboard Tipleri**
++
++**Daily Leaderboard** (Her gün sıfırlanır)
++```
++🏆 Today's Champions
++1. @alice - 5,678 ⚡
++2. @bob - 4,532 🔥
++3. @carol - 3,891 💜
++...
++20. You - 1,234 📈
++```
++
++**All-Time Leaderboard**
++```
++👑 Hall of Fame
++1. @legend - 25,678
++2. @pro - 21,453
++3. @master - 19,234
++```
++
++**Friends Leaderboard** (Sadece takip ettiğin kişiler)
++```
++👥 Your Circle
++1. @bestfriend - 3,456
++2. @buddy - 2,789
++3. You - 2,456 ⬆️
++```
++
++**Channel Leaderboards** (/farcaster, /degen vb.)
++
++### 5. **FID Entegrasyonu**
++- Otomatik FID ile login
++- Username display
++- PFP avatar kullanımı (leaderboard'da)
++- Follow suggestions (top players)
++
++### 6. **Sosyal Özellikler**
++- **Spectate Mode**: Arkadaşının oyununu canlı izle
++- **Ghost Replay**: Top skorların replay'ini izle
++- **Clan System**: Ekip oluştur, toplam skor yarışı
++- **Emote Reactions**: Skorlara emoji reaction
++- **Share Highlights**: En iyi anları 3sn GIF olarak paylaş
++
++---
++
++## 💰 Tokenomics & Ödül Sistemi (Opsiyonel)
++
++### Free-to-Play Model
++- Oyun tamamen ücretsiz
++- Sınırsız deneme hakkı
++- Reklam yok
++
++### Ödül Mekanizmaları
++
++**1. Daily Tournament (Günlük Turnuva)**
++```
++🏆 DAILY TOURNAMENT 🏆
++Prize Pool: 50 $DEGEN
++Top 10 paylaşır:
++1st: 15 $DEGEN
++2nd: 10 $DEGEN
++3rd: 8 $DEGEN
++4-10th: 1-2 $DEGEN
++
++Countdown: 6h 23m
++Your Rank: #45
++```
++
++**2. Weekly Grand Tournament**
++```
++Prize Pool: 500 $DEGEN + NFT Badge
++Top 3: Özel NFT kazanır
++```
++
++**3. Achievement NFTs** (Soulbound)
++- "First Blood" - İlk 1000 puan
++- "Speed Demon" - Level 20'ye ulaş
++- "Marathon Runner" - 10 oyun oyna
++- "Social Butterfly" - 5 arkadaşı challenge et
++- "Champion" - Daily leaderboard 1.si ol
++
++**4. Streak Rewards**
++```
++🔥 Play Streak: 7 days
++Bonus: +10% points today!
++
++Play daily for bigger multipliers:
++Day 7: +10%
++Day 14: +25%
++Day 30: +50%
++Day 100: +100% + Special Badge
++```
++
++### $SNAKE Token (Opsiyonel - İleri Aşama)
++- Oyun içi utility token
++- Cosmetic satın alma (snake skins)
++- Tournament entry fees (daha büyük ödüller)
++- Governance (hangi özellikler eklenmeli)
++
++---
++
++## 🎨 Özelleştirme & Progression
++
++### Unlockable Snake Skins
++```
++Starter Skins (Ücretsiz):
++- 💜 Classic Purple (default)
++- ⚪ Ghost White
++- 🖤 Midnight Black
++
++Achievement Skins:
++- 🌈 Rainbow Serpent (1000 skor)
++- 🔥 Fire Dragon (Level 15)
++- ⚡ Lightning Viper (Win daily tournament)
++- 💎 Diamond Python (10k total score)
++- 👑 Golden Crown Snake (Weekly champion)
++
++Premium Skins ($DEGEN ile satın al):
++- 🦄 Unicorn
++- 🐉 Eastern Dragon
++- 🤖 Cyber Snake
++- 🌌 Galaxy Serpent
++```
++
++### Trail Effects
++- Glitter trail
++- Fire trail
++- Lightning trail
++- Rainbow trail
++- Pixel trail
++
++### Emotes (Oyun içi)
++- 😎 Cool
++- 🔥 Fire
++- 💀 RIP
++- 🎯 Nice
++- 😱 OMG
++
++---
++
++## 📱 Teknik Gereksinimler & Mimari
++
++### Frontend Stack
++```
++Framework: Next.js 14 + React
++Canvas: HTML5 Canvas veya PixiJS
++Animation: Framer Motion
++Styling: Tailwind CSS
++State: Zustand veya Jotai
++```
++
++### Farcaster Entegrasyon
++```
++Farcaster Kit: @farcaster/frame-sdk
++Auth: Privy veya Dynamic
++APIs: Neynar API veya Pinata Farcaster API
++```
++
++### Backend & Database
++```
++Database: Supabase (realtime leaderboard)
++Auth: FID-based authentication
++Storage: IPFS for NFT metadata
++API: Next.js API routes
++```
++
++### Blockchain (Opsiyonel)
++```
++Network: Base (Coinbase L2)
++NFTs: ERC-721 (soulbound)
++Tokens: ERC-20 ($SNAKE)
++Smart Contract: Achievement minting
++```
++
++### Performance
++- **Load time**: <2 saniye
++- **FPS**: Sabit 60 FPS
++- **Responsive**: Mobile-first (320px+)
++- **Frame compatibility**: Warpcast, Farcaster apps
++- **Offline mode**: Service Worker ile cache
++
++---
++
++## 🎯 Viral Büyüme Stratejisi
++
++### 1. **Launch Stratejisi**
++```
++Week 1: Soft Launch
++- /farcaster kanalında duyuru
++- İlk 100 oyuncuya özel NFT badge
++- Influencer'lara erken erişim
++
++Week 2: Tournament Launch
++- İlk büyük turnuva (1000 $DEGEN)
++- Viral cast kampanyası
++- Referral bonusları
++
++Week 3: Feature Expansion
++- Yeni snake skins
++- Clan sistemi
++- Partnerships
++```
++
++### 2. **Referral Sistemi**
++```
++Arkadaşını davet et:
++- Sen: +100 bonus puan
++- Arkadaşın: +50 başlangıç bonusu
++- 5 arkadaş: Özel skin unlock
++- 25 arkadaş: Rare NFT badge
++```
++
++### 3. **Cast Viralliği**
++- **Auto-generated casts**: Otomatik skor paylaşımı
++- **Meme potential**: Komik fail momentler
++- **Brag rights**: "I'm #1 in /degen channel"
++- **Challenge threads**: Challenge zincirleri
++
++### 4. **Channel Takeover**
++- Her popüler channel için özel turnuva
++- /degen, /base, /purple vb.
++- Channel-specific leaderboards
++- Channel owner endorsement
++
++### 5. **Seasonal Events**
++```
++🎃 Halloween: Ghost-themed skins
++🎄 Christmas: Snow trail effects
++💜 Farcon: Exclusive tournament
++🚀 Base event: Special Base-themed level
++```
++
++---
++
++## 🎮 Oyun Akışı (User Journey)
++
++### İlk Deneyim
++```
++1. Frame'de "Play Now" görür
++   ↓
++2. Web app açılır, otomatik FID login
++   ↓
++3. Hızlı tutorial (5 saniye)
++   "Swipe to control, eat purple orbs!"
++   ↓
++4. İlk oyun başlar
++   ↓
++5. Oyun biter, skor gösterilir
++   "You scored 234! Daily best: 1,567 by @alice"
++   ↓
++6. [Play Again] [Share Score] [Challenge Friend]
++```
++
++### Returning Player
++```
++1. Frame'de kendi skorunu görür
++   "Your best: 1,234 | Today #15"
++   ↓
++2. Bildirim: "@bob beat your score!"
++   ↓
++3. Hemen girer, revenge attempt
++   ↓
++4. Yeni high score → Auto cast
++   ↓
++5. Challenge @bob back
++```
++
++---
++
++## 🏗️ MVP Özellik Listesi (Öncelik Sırası)
++
++### Phase 1: Core Game (Week 1-2)
++- [x] Temel snake mekanikleri
++- [x] Smooth controls (swipe, keyboard)
++- [x] Food spawn & collision
++- [x] Score system
++- [x] Game over screen
++- [x] Local high score
++
++### Phase 2: Visual Polish (Week 2-3)
++- [x] Neon effects & trails
++- [x] Particle animations
++- [x] Screen shake
++- [x] Sound effects
++- [x] Background music
++- [x] Level themes
++
++### Phase 3: Farcaster Integration (Week 3-4)
++- [x] FID authentication
++- [x] Frame creation
++- [x] Cast sharing
++- [x] Basic leaderboard (daily)
++- [x] Username display
++
++### Phase 4: Social Features (Week 4-5)
++- [x] Challenge system
++- [x] Friends leaderboard
++- [x] Spectate mode
++- [x] Channel leaderboards
++
++### Phase 5: Progression & Retention (Week 5-6)
++- [x] Daily tournaments
++- [x] Achievement system
++- [x] Unlockable skins
++- [x] Streak rewards
++- [x] Power-ups
++
++### Phase 6: Monetization & Scale (Week 6+)
++- [x] NFT badges
++- [x] Token integration
++- [x] Premium features
++- [x] Advanced analytics
++
++---
++
++## 📊 Success Metrics (KPIs)
++
++### Engagement
++- **DAU** (Daily Active Users): Target 1,000+ by Month 1
++- **Avg Session Time**: >5 minutes
++- **Sessions per User**: >3 per day
++- **Retention D1/D7/D30**: 60%/30%/15%
++
++### Social
++- **Casts Generated**: >100 per day
++- **Challenge Sent**: >50 per day
++- **Referrals**: >10 per day
++- **Leaderboard Views**: >500 per day
++
++### Monetization (if applicable)
++- **NFT Mints**: >100 per month
++- **Token Volume**: Growing weekly
++- **Premium Conversion**: >5%
++
++---
++
++## 🎨 Ekran Tasarımları (Wireframes)
++
++### Ana Menü
++```
++┌─────────────────────────────┐
++│    🐍 CASTERSNAKE           │
++│                             │
++│    [▶️  PLAY]               │
++│    [🏆 LEADERBOARD]         │
++│    [👤 PROFILE]             │
++│    [⚙️  SETTINGS]           │
++│                             │
++│    Daily Best: @alice       │
++│    Score: 2,456             │
++└─────────────────────────────┘
++```
++
++### Oyun Ekranı
++```
++┌─────────────────────────────┐
++│ Score: 1,234    ⏸️  Level: 8│
++│ ⭐ x2 (4s)      Best: 2,456 │
++├─────────────────────────────┤
++│                             │
++│         🐍                  │
++│            ●                │
++│                      ●      │
++│     ●                       │
++│                   ●         │
++│                             │
++├─────────────────────────────┤
++│  [◀] Swipe to control [▶]  │
++└─────────────────────────────┘
++```
++
++### Game Over
++```
++┌─────────────────────────────┐
++│      💀 GAME OVER            │
++│                             │
++│    Your Score: 1,234        │
++│    Best: 2,456              │
++│    Today Rank: #24          │
++│                             │
++│    [🔄 Play Again]          │
++│    [📤 Share Score]         │
++│    [⚔️  Challenge Friend]    │
++│                             │
++│    🔥 Streak: 3 days        │
++└─────────────────────────────┘
++```
++
++### Leaderboard
++```
++┌─────────────────────────────┐
++│    🏆 LEADERBOARDS          │
++│ [Daily] [All-Time] [Friends]│
++├─────────────────────────────┤
++│  1. 👑 @alice     5,678 ⚡  │
++│  2. 🥈 @bob       4,532 🔥  │
++│  3. 🥉 @carol     3,891 💜  │
++│  4.    @dave      3,456     │
++│  5.    @eve       3,234     │
++│  ...                        │
++│  24. 📈 You       1,234     │
++├─────────────────────────────┤
++│  Tournament ends in: 5h 23m │
++│  Prize: 50 $DEGEN           │
++└─────────────────────────────┘
++```
++
++---
++
++## 🚀 Detaylı Geliştirme Prompt'u
++
++```
++Create a highly addictive, viral Snake game for Farcaster mini app called "CasterSnake" with these EXACT specifications:
++
++CORE GAME:
++- Smooth physics-based snake (NO grid, fluid ribbon-like movement)
++- Swipe controls for mobile, arrow keys for desktop
++- Snake leaves glowing neon trail with particle effects
++- Food collection with satisfying animations (screen shake, particles, score popup)
++- Speed gradually increases (+5% per level)
++- Smooth 60 FPS gameplay
++
++VISUAL DESIGN:
++- Farcaster purple (#8A63D2) color scheme with neon accents
++- Gradient backgrounds that shift every 5 levels
++- Particle effects on eating, power-ups, death
++- Death animation: slow-motion explosion with particles
++- Minimalist UI with score, level, timer displays
++
++PROGRESSION:
++- Level up every 5 foods eaten
++- 6 rotating themes: Purple Void → Cyber Grid → Neon City → Space Warp → Matrix → Plasma Storm
++- Each theme has unique background and color palette
++- Power-ups spawn every 15-25 seconds: Star (invincibility), Clock (slow-mo), Magnet (attract food), Ghost (phase through tail), Bomb (clear obstacles), Shield (one-hit save)
++
++FARCASTER INTEGRATION:
++- FID-based authentication (auto-login via Farcaster)
++- Display username and PFP on screens
++- Post-game auto-generate cast: "Just scored X on CasterSnake! Can you beat me?"
++- Challenge system: "@username I challenge you to beat my score!"
++- Three leaderboards: Daily (resets 00:00 UTC), All-Time, Friends-Only
++- Show player rankings in real-time
++
++FRAME SUPPORT:
++- Create Farcaster Frame with:
++  * Preview image showing game + top score
++  * "Play Now" button opens mini app
++  * "Leaderboard" button shows rankings
++  * Auto-fetch FID from frame context
++- Frame updates with player's best score after each game
++
++SOCIAL FEATURES:
++- Daily tournament: Top 10 win $DEGEN prizes
++- Streak system: Play daily for +10% bonus (up to +100%)
++- Challenge friends directly via @ mention
++- Share score as cast with one click
++- Spectate mode: Watch friends play live (optional)
++
++UNLOCKABLES:
++- Snake skins unlocked by achievements:
++  * Classic Purple (default)
++  * Ghost White (free)
++  * Rainbow Serpent (reach 1000 score)
++  * Fire Dragon (reach level 15)
++  * Lightning Viper (win daily tournament)
++  * Diamond Python (reach 10k total score)
++- Trail effects: Normal, Glitter, Fire, Lightning, Rainbow
++- Achievement NFT badges (soulbound): "First Blood", "Speed Demon", "Marathon Runner", "Champion"
++
++TECHNICAL REQUIREMENTS:
++- Built with: Next.js 14, React, HTML5 Canvas or PixiJS
++- Styling: Tailwind CSS
++- Farcaster SDK: Use Farcaster Frame SDK or Neynar API
++- Database: Supabase for real-time leaderboards
++- Deploy: Vercel
++- Responsive: Mobile-first (works on Warpcast mobile)
++- Performance: <2s load time, constant 60 FPS
++- Sound: Web Audio API for eating, power-up, game over sounds
++
++GAME FLOW:
++1. User clicks Frame "Play Now"
++2. Mini app opens, auto-login with FID
++3. Quick 5-second tutorial overlay
++4. Game starts immediately
++5. On game over:
++   - Show score, rank, best score
++   - [Play Again] [Share] [Challenge] buttons
++   - Auto-save to leaderboard
++6. After share/challenge: Auto-compose cast
++
++LEADERBOARD FORMAT:
++Daily Leaderboard (top 20):
++1. @username - 5,678 ⚡
++2. @username - 4,532 🔥
++...
++(Your rank: #24 - 1,234 📈)
++
++Prize Pool: 50 $DEGEN
++Resets in: 6h 23m
++
++UI SCREENS NEEDED:
++1. Main Menu: Play, Leaderboard, Profile, Settings
++2. Game Screen: Score, level, timer, power-up indicator
++3. Pause Menu: Resume, restart, quit
++4. Game Over: Score, rank, share, challenge, play again
++5. Leaderboard: Daily/All-Time/Friends tabs
++6. Profile: Stats, achievements, skins
++7. Settings: Sound, music, controls sensitivity
++
++MONETIZATION (Optional):
++- Free to play, no ads
++- Daily tournament entry: Free
++- Premium skins: 100 $DEGEN each
++- Weekly grand tournament: 500 $DEGEN prize pool + NFT
++- Achievement NFTs: Mint on Base blockchain (free)
++
++Make it:
++✅ Extremely addictive ("just one more try")
++✅ Smooth and juicy animations
++✅ Viral-friendly (easy to share, challenge friends)
++✅ Mobile-optimized
++✅ Farcaster-native (feels like part of ecosystem)
++✅ Competitive (leaderboards drive engagement)
++✅ Rewarding (daily play incentives)
++
++Technical implementation:
++- Use requestAnimationFrame for game loop
++- Implement collision detection with bounding boxes
++- Smooth camera follow (slight lerp)
++- Object pooling for particles (performance)
++- Local storage for best score backup
++- API calls batched to avoid rate limits
++- Leaderboard cached for 30 seconds
++
++Deliver a COMPLETE, production-ready mini app that can be deployed immediately to Farcaster. Include all assets, sounds (can use placeholder beeps), and deployment instructions.
++```
++
++---
++
++## 🎉 Ekstra Fikirler (V2 için)
++
++1. **Battle Royale Mode**: 10 oyuncu aynı alanda, son kalan kazanır
++2. **Co-op Mode**: 2 snake birlikte oynuyor, skorlar paylaşılıyor
++3. **Boss Battles**: Her 10 levelde dev düşman snake
++4. **Custom Maps**: Community-created levels
++5. **Betting System**: Skoruna $DEGEN yatır, kazanırsan 2x kazan
++6. **Clan Wars**: Takımlar halinde turnuva
++7. **Live Streaming**: Top players'ı canlı izle
++8. **Skin Marketplace**: Kullanıcılar skin satabilir
++9. **AI Opponents**: Botlara karşı practice
++10. **Cross-chain**: Base, Optimism, Arbitrum leaderboards
++
++---
++
++Bu prompt ile **son derece bağımlılık yaratan, sosyal özellikleri güçlü ve Farcaster ekosisteminde viral olma potansiyeli yüksek** bir Snake oyunu geliştirebilirsiniz! 🐍💜🚀
++```
++
++Generate an app logo and update the app metadata title and description.
