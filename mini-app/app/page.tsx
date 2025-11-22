@@ -1,4 +1,5 @@
 import { description, title } from "@/lib/metadata";
+import Game2048 from "@/components/2048-game";
 import { generateMetadata } from "@/lib/farcaster-embed";
 
 export { generateMetadata };
