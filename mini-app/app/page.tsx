@@ -1,10 +1,4 @@
 import { description, title } from "@/lib/metadata";
-import { Metadata } from 'next';
-export const metadata: Metadata = {
-  other: {
-    'base:app_id': '691fc2b0e5985ba8ba0cc245',
-  },
-};
 import Game2048 from "@/components/2048-game";
 import { generateMetadata } from "@/lib/farcaster-embed";
 
