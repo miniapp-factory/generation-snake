@@ -2480,3 +2480,33 @@
 +}
 +bc_6aslq21b
 +
+
+# 2025-12-14 14:25:50.724322
++import { Metadata } from 'next';
++
++export const metadata: Metadata = {
++  other: {
++    'base:app_id': '691fc2b0e5985ba8ba0cc245',
++  },
++};
++
++export default function Home() {
++  return (<div>{/* Your page content */}</div>);
++}        Metatag base:app_id not found         
++hataları düzelt
++
+
+# 2025-12-14 14:25:50.724836
++import { Metadata } from 'next';
++
++export const metadata: Metadata = {
++  other: {
++    'base:app_id': '691fc2b0e5985ba8ba0cc245',
++  },
++};
++
++export default function Home() {
++  return (<div>{/* Your page content */}</div>);
++}        Metatag base:app_id not found         
++hataları düzelt
++
